@@ -13,7 +13,6 @@ from asciimatics.screen import Screen
 
 def main(screen):
 
-    # create the cast {key: tag, value: list}
     cast = {}
     cast["brick"] = []
     for x in range(7, 100, 7):
@@ -40,33 +39,22 @@ def main(screen):
                 brick.set_text("~")
                 brick.set_position(position)
                 cast["brick"].append(brick)
-
     
-    x = int(constants.MAX_X / 2)
-    y = int(constants.MAX_Y - 1)
-    position = Point(x, y)
-    paddle = Actor()
-    paddle.set_text("===========")
-    paddle.set_position(position)
-    cast["paddle"] = [paddle]
+    position = Point(53, 28)
+    hunter = Actor()
+    hunter.set_text("@")
+    hunter.set_position(position)
+    cast["hunter"] = [hunter]
 
-    x = int(constants.MAX_X / 2)
-    y = int(constants.MAX_Y / 2)
-    position = Point(x, y)
-    velocity = Point(1, -1)
-    ball = Actor()
-    ball.set_text("@")
-    ball.set_position(position)
-    ball.set_velocity(velocity)
-    cast["ball"] = [ball]
+    position = hunter.get_position()
+    x = position.get_x()
+    y = position.get_y()
+    position = Point(x, y - 1)
+    bow = Actor()
+    bow.set_text("^")
+    bow.set_position(position)
+    cast["bow"] = [bow]
 
-    x = int(constants.MAX_X - 1)
-    y = int(constants.MAX_Y - 1)
-    position = Point(x, y)
-    score = Actor()
-    score.set_text(len(cast["brick"]))
-    score.set_position(position)
-    cast["score"] = [score]
     
     # create the script {key: tag, value: list}
     script = {}
