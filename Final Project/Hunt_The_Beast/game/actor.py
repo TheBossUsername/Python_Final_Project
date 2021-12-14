@@ -2,18 +2,19 @@ from game import constants
 from game.point import Point
 
 class Actor:
-    """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position 
-    and velocity in 2d space.
-
-    Stereotype:
-        Information Holder
-
-    Attributes:
-        _tag (string): The actor's tag.
-        _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
-    """
+#
+# Description:
+#   A visible, moveable thing that participates in the game. 
+#   The responsibility of Actor is to keep track of its appearance, position, value 
+#   and velocity in 2d space.
+#
+# OOP Principles Used:
+#   Encapsulation, Polymorphism
+#
+# Reasoning:
+#   This class uses encapsulation becuase there is functions to set and get attributes of actors but no way 
+#   manually change the data inside 
+#
 
     def __init__(self):
         """The class constructor."""
