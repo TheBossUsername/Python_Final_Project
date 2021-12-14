@@ -25,10 +25,15 @@ def main(screen):
                 brick.set_position(position)
                 cast["brick"].append(brick)
     
+    i = 0
     for x in range(7, 100, 14):
-        for y in range(2, 30, 3):
+        for y in range(2, 30, 4):
+            i += 1
             for t in range(0, 8, 1):
-                position = Point(x + t, y)
+                if i % 3 == 0:
+                    position = Point(x + t, y - 2)
+                else:
+                    position = Point(x + t, y)
                 brick = Actor()
                 brick.set_text("~")
                 brick.set_position(position)
