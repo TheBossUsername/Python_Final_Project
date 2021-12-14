@@ -56,6 +56,3 @@ class HandleCollisionsAction(Action):
             if ball_position.get_x() >= min_x and ball_position.get_x() <= max_x:
                 clunk = ball_velocity.reverse_y()
                 ball.set_velocity(clunk) 
-        
-        elif ball_position.get_y() == constants.MAX_Y - 2:
-            quit()

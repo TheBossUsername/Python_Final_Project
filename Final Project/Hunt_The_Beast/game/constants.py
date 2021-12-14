@@ -1,0 +1,3 @@
+MAX_X = 100
+MAX_Y = 30
+FRAME_LENGTH = 0.1

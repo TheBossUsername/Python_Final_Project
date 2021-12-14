@@ -15,7 +15,26 @@ def main(screen):
 
     # create the cast {key: tag, value: list}
     cast = {}
+    cast["brick"] = []
+    for x in range(7, 100, 7):
+        for y in range(3, 30, 6):
+            for t in range(0, 3, 1):
+                position = Point(x, y + t)
+                brick = Actor()
+                brick.set_text("|")
+                brick.set_position(position)
+                cast["brick"].append(brick)
+    
+    for x in range(7, 100, 14):
+        for y in range(2, 30, 3):
+            for t in range(0, 8, 1):
+                position = Point(x + t, y)
+                brick = Actor()
+                brick.set_text("~")
+                brick.set_position(position)
+                cast["brick"].append(brick)
 
+    
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y - 1)
     position = Point(x, y)
@@ -23,15 +42,6 @@ def main(screen):
     paddle.set_text("===========")
     paddle.set_position(position)
     cast["paddle"] = [paddle]
-
-    cast["brick"] = []
-    for x in range(5, 75, random.randint(1, 5)):
-        for y in range(2, 8, random.randint(1, 5)):
-            position = Point(x, y)
-            brick = Actor()
-            brick.set_text("*")
-            brick.set_position(position)
-            cast["brick"].append(brick)
 
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y / 2)
