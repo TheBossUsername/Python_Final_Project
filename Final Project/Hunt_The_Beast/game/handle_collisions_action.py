@@ -3,6 +3,7 @@ from game import constants
 from game.action import Action
 from game.actor import Actor
 from game.point import Point
+from game.game_over import Game_Over
 
 class HandleCollisionsAction(Action):
     """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
@@ -30,15 +31,13 @@ class HandleCollisionsAction(Action):
 
 
         if dragon_position.get_x() == hunter_position.get_x() - 2 and dragon_position.get_y() == hunter_position.get_y():
-            dragon.set_text("6")
+            Game_Over.ran_into_dragon()
             
         
         for hole in holes:
             hole_position = hole.get_position()
             if hole_position.get_x() == hunter_position.get_x() - 2 and hole_position.get_y() == hunter_position.get_y():
-                hole.set_text("O")
-
-        
+                Game_Over.fell_down_a_hole()
 
         for warning in warnings:
             warning_position = warning.get_position()

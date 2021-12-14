@@ -69,21 +69,21 @@ class ControlActorsAction(Action):
             if bx == hx + 1:
                 for t in range(12, 80, 14):
                     if dx == hx + t and dy == hy:
-                        Game_Over.win()
+                        Game_Over.dragon_killed()
             elif bx == hx - 1:
                 for t in range(16, 80, 14):
                     if dx == hx - t and dy == hy:
-                        Game_Over.win()
+                        Game_Over.dragon_killed()
             elif by == hy + 1:
                 for t in range(6, 30, 6):
                     if dx + 2 == hx and dy == hy + t:
-                        Game_Over.win()
+                        Game_Over.dragon_killed()
             elif by == hy - 1:
                 for t in range(6, 30, 6):
                     if dx + 2 == hx and dy == hy - t:
-                        Game_Over.win()
+                        Game_Over.dragon_killed()
             if arrows.get_value() == 0:
-                hunter.set_text("out")
+                Game_Over.out_of_arrows()
 
 
 
