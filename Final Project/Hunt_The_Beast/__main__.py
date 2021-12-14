@@ -30,10 +30,7 @@ def main(screen):
         for y in range(2, 30, 4):
             i += 1
             for t in range(0, 8, 1):
-                if i % 3 == 0:
-                    position = Point(x + t, y - 2)
-                else:
-                    position = Point(x + t, y)
+                position = Point(x + t, y - (2 * (i % 3)))
                 brick = Actor()
                 brick.set_text("~")
                 brick.set_position(position)
