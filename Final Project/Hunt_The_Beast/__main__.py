@@ -55,6 +55,61 @@ def main(screen):
     bow.set_position(position)
     cast["bow"] = [bow]
 
+    x = random.randrange(9, 94, 14)
+    y = random.randrange(4, 17, 6)
+    position = Point(x, y)
+    dragon = Actor()
+    dragon.set_text("")
+    dragon.set_position(position)
+    cast["dragon"] = [dragon]
+
+    cast["warning"] = []
+    position = dragon.get_position()
+    x = position.get_x()
+    y = position.get_y()
+    for z in range(x - 14, x + 15, 28):
+        warning = Actor()
+        warning.set_text("")
+        position = Point(z, y - 1)
+        warning.set_position(position)
+        cast["warning"].append(warning)
+    for t in range(y - 7, y + 12, 12):
+        warning = Actor()
+        warning.set_text("")
+        position = Point(x, t)
+        warning.set_position(position)
+        cast["warning"].append(warning)
+    for z in range(x - 14, x + 15, 28):
+        for t in range(y - 7, y + 12, 12):
+            warning = Actor()
+            warning.set_text("")
+            position = Point(z, t)
+            warning.set_position(position)
+            cast["warning"].append(warning)
+    
+    x = random.randrange(9, 94, 14)
+    y = random.randrange(4, 17, 6)
+    dragon_position = dragon.get_position()
+    z = dragon_position.get_x()
+    t = dragon_position.get_y()
+    while x == z and y == t:
+        x = random.randrange(9, 94, 14)
+        y = random.randrange(4, 17, 6)
+    position = Point(x, y)
+    hole = Actor()
+    hole.set_text("O")
+    hole.set_position(position)
+    cast["hole"] = [hole]
+
+    position = Point(x, y)
+    dragon = Actor()
+    dragon.set_text("")
+    dragon.set_position(position)
+    cast["dragon"] = [dragon]
+
+
+
+
     
     # create the script {key: tag, value: list}
     script = {}
