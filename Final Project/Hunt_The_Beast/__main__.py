@@ -13,6 +13,7 @@ from asciimatics.screen import Screen
 
 def main(screen):
 
+
     cast = {}
     cast["brick"] = []
     for x in range(7, 100, 7):

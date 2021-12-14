@@ -2,6 +2,7 @@ from game import constants
 from game.action import Action
 from game.point import Point
 from game.actor import Actor
+from game.game_over import Game_Over
 
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
@@ -68,19 +69,19 @@ class ControlActorsAction(Action):
             if bx == hx + 1:
                 for t in range(12, 80, 14):
                     if dx == hx + t and dy == hy:
-                        hunter.set_text("R")
+                        Game_Over.win()
             elif bx == hx - 1:
                 for t in range(16, 80, 14):
                     if dx == hx - t and dy == hy:
-                        hunter.set_text("L")
+                        Game_Over.win()
             elif by == hy + 1:
                 for t in range(6, 30, 6):
                     if dx + 2 == hx and dy == hy + t:
-                        hunter.set_text("D")
+                        Game_Over.win()
             elif by == hy - 1:
                 for t in range(6, 30, 6):
                     if dx + 2 == hx and dy == hy - t:
-                        hunter.set_text("U")
+                        Game_Over.win()
             if arrows.get_value() == 0:
                 hunter.set_text("out")
 
