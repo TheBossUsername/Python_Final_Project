@@ -15,15 +15,15 @@ def main(screen):
 
 
     cast = {}
-    cast["brick"] = []
+    cast["walls"] = []
     for x in range(7, 100, 7):
         for y in range(3, 30, 6):
             for t in range(0, 3, 1):
                 position = Point(x, y + t)
-                brick = Actor()
-                brick.set_text("|")
-                brick.set_position(position)
-                cast["brick"].append(brick)
+                walls = Actor()
+                walls.set_text("|")
+                walls.set_position(position)
+                cast["walls"].append(walls)
     
     
     for x in range(8, 100, 14):
@@ -36,10 +36,10 @@ def main(screen):
                     i = 1
             for t in range(0, 6, 1):
                 position = Point(x + t, y - z)
-                brick = Actor()
-                brick.set_text("~")
-                brick.set_position(position)
-                cast["brick"].append(brick)
+                walls = Actor()
+                walls.set_text("~")
+                walls.set_position(position)
+                cast["walls"].append(walls)
     
     position = Point(53, 28)
     hunter = Actor()
