@@ -47,6 +47,38 @@ class ControlActorsAction(Action):
             y = position.get_y()
             position = Point(x + x1, y + y1)
             bow.set_position(position) 
+        elif x1 == 5:
+            bow = cast["bow"][0]
+            hunter = cast["hunter"][0]
+            dragon = cast["dragon"][0]
+            bposition = bow.get_position()
+            hposition = hunter.get_position()
+            dposition = dragon.get_position()
+            bx = bposition.get_x()
+            by = bposition.get_y()
+            hx = hposition.get_x()
+            hy = hposition.get_y()
+            dx = dposition.get_x()
+            dy = dposition.get_y()
+            if bx == hx + 1:
+                for t in range(12, 80, 14):
+                    if dx == hx + t and dy == hy:
+                        hunter.set_text("R")
+            if bx == hx - 1:
+                for t in range(16, 80, 14):
+                    if dx == hx - t and dy == hy:
+                        hunter.set_text("L")
+            if by == hy + 1:
+                for t in range(6, 30, 6):
+                    if dx + 2 == hx and dy == hy + t:
+                        hunter.set_text("D")
+            if by == hy - 1:
+                for t in range(6, 30, 6):
+                    if dx + 2 == hx and dy == hy - t:
+                        hunter.set_text("U")
+
+
+
         else:   
             hunter = cast["hunter"][0] # there's only one in the cast
             hunter.set_velocity(direction)   

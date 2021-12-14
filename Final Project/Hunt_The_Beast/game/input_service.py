@@ -25,6 +25,7 @@ class InputService:
         self._keys[106] = Point(0, 1) # j
         self._keys[107] = Point(1, 0) # k
         self._keys[117] = Point(0, -1) # u
+        self._keys[32] = Point(5, 0) # u
         
     def get_direction(self):
         """Gets the selected direction for the given player.
@@ -39,3 +40,4 @@ class InputService:
                 sys.exit()
             direction = self._keys.get(event.key_code, Point(0, 0))
         return direction
+        

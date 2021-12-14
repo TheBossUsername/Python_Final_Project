@@ -31,21 +31,21 @@ class HandleCollisionsAction(Action):
 
         if dragon_position.get_x() == hunter_position.get_x() - 2 and dragon_position.get_y() == hunter_position.get_y():
             dragon.set_text("6")
-            hunter.set_text("X")
+            
         
         for hole in holes:
             hole_position = hole.get_position()
             if hole_position.get_x() == hunter_position.get_x() - 2 and hole_position.get_y() == hunter_position.get_y():
                 hole.set_text("O")
-                hunter.set_text("X")
+
         
 
         for warning in warnings:
             warning_position = warning.get_position()
             if warning_position.get_x() == hunter_position.get_x() - 2 and warning_position.get_y() == hunter_position.get_y() - 1:
-                warning.set_text("Drag")
+                warning.set_text("D")
         
         for hwarning in hwarnings:
             hwarning_position = hwarning.get_position()
             if hwarning_position.get_x() == hunter_position.get_x() - 2 and hwarning_position.get_y() == hunter_position.get_y() + 1:
-                hwarning.set_text("Hole")
+                hwarning.set_text("H")

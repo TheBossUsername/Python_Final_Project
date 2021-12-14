@@ -129,6 +129,13 @@ def main(screen):
                 position = Point(z, t)
                 hwarning.set_position(position)
                 cast["hwarning"].append(hwarning)
+    
+    position = Point(1, 1)
+    arrows = Actor()
+    arrows.set_text("Arrows: 3")
+    arrows.set_position(position)
+    cast["arrows"] = [arrows]
+
 
 
     # create the script {key: tag, value: list}
@@ -138,11 +145,11 @@ def main(screen):
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
-    handle_collisions_acition = HandleCollisionsAction()
+    handle_collisions_action = HandleCollisionsAction()
     draw_actors_action = DrawActorsAction(output_service)
     
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_acition]
+    script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
     # start the game
