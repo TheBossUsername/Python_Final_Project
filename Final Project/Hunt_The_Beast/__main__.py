@@ -87,30 +87,50 @@ def main(screen):
             warning.set_position(position)
             cast["warning"].append(warning)
     
-    x = random.randrange(9, 94, 14)
-    y = random.randrange(4, 17, 6)
+    
     dragon_position = dragon.get_position()
     z = dragon_position.get_x()
     t = dragon_position.get_y()
-    while x == z and y == t:
+    cast["hole"] = []
+    for w in range(0, 3):
         x = random.randrange(9, 94, 14)
         y = random.randrange(4, 17, 6)
-    position = Point(x, y)
-    hole = Actor()
-    hole.set_text("O")
-    hole.set_position(position)
-    cast["hole"] = [hole]
-
-    position = Point(x, y)
-    dragon = Actor()
-    dragon.set_text("")
-    dragon.set_position(position)
-    cast["dragon"] = [dragon]
-
-
-
-
+        while x == z and y == t:
+            x = random.randrange(9, 94, 14)
+            y = random.randrange(4, 17, 6)
+        position = Point(x, y)
+        hole = Actor()
+        hole.set_text("")
+        hole.set_position(position)
+        cast["hole"].append(hole)
     
+    holes = cast["hole"]
+    cast["hwarning"] = []
+    for hole in holes:
+        position = hole.get_position()
+        x = position.get_x()
+        y = position.get_y()
+        for z in range(x - 14, x + 15, 28):
+            hwarning = Actor()
+            hwarning.set_text("")
+            position = Point(z, y + 1)
+            hwarning.set_position(position)
+            cast["hwarning"].append(hwarning)
+        for t in range(y - 5, y + 14, 12):
+            hwarning = Actor()
+            hwarning.set_text("")
+            position = Point(x, t)
+            hwarning.set_position(position)
+            cast["hwarning"].append(hwarning)
+        for z in range(x - 14, x + 15, 28):
+            for t in range(y - 5, y + 14, 12):
+                hwarning = Actor()
+                hwarning.set_text("")
+                position = Point(z, t)
+                hwarning.set_position(position)
+                cast["hwarning"].append(hwarning)
+
+
     # create the script {key: tag, value: list}
     script = {}
 

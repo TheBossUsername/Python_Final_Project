@@ -20,6 +20,9 @@ class HandleCollisionsAction(Action):
         hunter = cast["hunter"][0]
         dragon = cast["dragon"][0]
         warnings = cast["warning"]
+        hwarnings = cast["hwarning"]
+        holes = cast["hole"]
+
         
         dragon_position = dragon.get_position()
         hunter_position = hunter.get_position()
@@ -27,11 +30,22 @@ class HandleCollisionsAction(Action):
 
 
         if dragon_position.get_x() == hunter_position.get_x() - 2 and dragon_position.get_y() == hunter_position.get_y():
-            dragon.set_text("D")
-            hunter.set_text("x")
+            dragon.set_text("6")
+            hunter.set_text("X")
+        
+        for hole in holes:
+            hole_position = hole.get_position()
+            if hole_position.get_x() == hunter_position.get_x() - 2 and hole_position.get_y() == hunter_position.get_y():
+                hole.set_text("O")
+                hunter.set_text("X")
+        
 
         for warning in warnings:
             warning_position = warning.get_position()
             if warning_position.get_x() == hunter_position.get_x() - 2 and warning_position.get_y() == hunter_position.get_y() - 1:
-                warning.set_text("D")
-                hunter.set_text("W")
+                warning.set_text("Drag")
+        
+        for hwarning in hwarnings:
+            hwarning_position = hwarning.get_position()
+            if hwarning_position.get_x() == hunter_position.get_x() - 2 and hwarning_position.get_y() == hunter_position.get_y() + 1:
+                hwarning.set_text("Hole")
