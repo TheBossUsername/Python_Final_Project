@@ -74,19 +74,19 @@ def main(screen):
         position = Point(z, y - 1)
         dragon_warning.set_position(position)
         cast["dragon_warning"].append(dragon_warning)
-    for t in range(y - 7, y + 12, 12):
-        dragon_warning = Actor()
-        dragon_warning.set_text("")
-        position = Point(x, t)
-        dragon_warning.set_position(position)
-        cast["dragon_warning"].append(dragon_warning)
-    for z in range(x - 14, x + 15, 28):
         for t in range(y - 7, y + 12, 12):
             dragon_warning = Actor()
             dragon_warning.set_text("")
             position = Point(z, t)
             dragon_warning.set_position(position)
             cast["dragon_warning"].append(dragon_warning)
+    for t in range(y - 7, y + 12, 12):
+        dragon_warning = Actor()
+        dragon_warning.set_text("")
+        position = Point(x, t)
+        dragon_warning.set_position(position)
+        cast["dragon_warning"].append(dragon_warning)
+        
     
     
     dragon_position = dragon.get_position()
