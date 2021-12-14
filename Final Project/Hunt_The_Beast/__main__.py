@@ -64,29 +64,29 @@ def main(screen):
     dragon.set_position(position)
     cast["dragon"] = [dragon]
 
-    cast["warning"] = []
+    cast["dragon_warning"] = []
     position = dragon.get_position()
     x = position.get_x()
     y = position.get_y()
     for z in range(x - 14, x + 15, 28):
-        warning = Actor()
-        warning.set_text("")
+        dragon_warning = Actor()
+        dragon_warning.set_text("")
         position = Point(z, y - 1)
-        warning.set_position(position)
-        cast["warning"].append(warning)
+        dragon_warning.set_position(position)
+        cast["dragon_warning"].append(dragon_warning)
     for t in range(y - 7, y + 12, 12):
-        warning = Actor()
-        warning.set_text("")
+        dragon_warning = Actor()
+        dragon_warning.set_text("")
         position = Point(x, t)
-        warning.set_position(position)
-        cast["warning"].append(warning)
+        dragon_warning.set_position(position)
+        cast["dragon_warning"].append(dragon_warning)
     for z in range(x - 14, x + 15, 28):
         for t in range(y - 7, y + 12, 12):
-            warning = Actor()
-            warning.set_text("")
+            dragon_warning = Actor()
+            dragon_warning.set_text("")
             position = Point(z, t)
-            warning.set_position(position)
-            cast["warning"].append(warning)
+            dragon_warning.set_position(position)
+            cast["dragon_warning"].append(dragon_warning)
     
     
     dragon_position = dragon.get_position()
@@ -106,30 +106,30 @@ def main(screen):
         cast["hole"].append(hole)
     
     holes = cast["hole"]
-    cast["hwarning"] = []
+    cast["hole_warning"] = []
     for hole in holes:
         position = hole.get_position()
         x = position.get_x()
         y = position.get_y()
         for z in range(x - 14, x + 15, 28):
-            hwarning = Actor()
-            hwarning.set_text("")
+            hole_warning = Actor()
+            hole_warning.set_text("")
             position = Point(z, y + 1)
-            hwarning.set_position(position)
-            cast["hwarning"].append(hwarning)
+            hole_warning.set_position(position)
+            cast["hole_warning"].append(hole_warning)
         for t in range(y - 5, y + 14, 12):
-            hwarning = Actor()
-            hwarning.set_text("")
+            hole_warning = Actor()
+            hole_warning.set_text("")
             position = Point(x, t)
-            hwarning.set_position(position)
-            cast["hwarning"].append(hwarning)
+            hole_warning.set_position(position)
+            cast["hole_warning"].append(hole_warning)
         for z in range(x - 14, x + 15, 28):
             for t in range(y - 5, y + 14, 12):
-                hwarning = Actor()
-                hwarning.set_text("")
+                hole_warning = Actor()
+                hole_warning.set_text("")
                 position = Point(z, t)
-                hwarning.set_position(position)
-                cast["hwarning"].append(hwarning)
+                hole_warning.set_position(position)
+                cast["hole_warning"].append(hole_warning)
     
     position = Point(1, 1)
     arrows = Actor()

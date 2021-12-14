@@ -20,15 +20,15 @@ class HandleCollisionsAction(Action):
         """
         hunter = cast["hunter"][0]
         dragon = cast["dragon"][0]
-        warnings = cast["warning"]
-        hwarnings = cast["hwarning"]
+        dragon_warnings = cast["dragon_warning"]
+        hole_warnings = cast["hole_warning"]
         bow = cast["bow"][0]
         holes = cast["hole"]
 
         
         dragon_position = dragon.get_position()
         hunter_position = hunter.get_position()
-        hunter_velocity = hunter.get_velocity()
+
 
 
 
@@ -41,15 +41,15 @@ class HandleCollisionsAction(Action):
             if hole_position.get_x() == hunter_position.get_x() - 2 and hole_position.get_y() == hunter_position.get_y():
                 Game_Over.fell_down_a_hole()
 
-        for warning in warnings:
-            warning_position = warning.get_position()
-            if warning_position.get_x() == hunter_position.get_x() - 2 and warning_position.get_y() == hunter_position.get_y() - 1:
-                warning.set_text("!")
+        for dragon_warning in dragon_warnings:
+            dragon_warning_position = dragon_warning.get_position()
+            if dragon_warning_position.get_x() == hunter_position.get_x() - 2 and dragon_warning_position.get_y() == hunter_position.get_y() - 1:
+                dragon_warning.set_text("!")
         
-        for hwarning in hwarnings:
-            hwarning_position = hwarning.get_position()
-            if hwarning_position.get_x() == hunter_position.get_x() - 2 and hwarning_position.get_y() == hunter_position.get_y() + 1:
-                hwarning.set_text("?")
+        for hole_warning in hole_warnings:
+            hole_warning_position = hole_warning.get_position()
+            if hole_warning_position.get_x() == hunter_position.get_x() - 2 and hole_warning_position.get_y() == hunter_position.get_y() + 1:
+                hole_warning.set_text("?")
         
         if hunter_position.get_x() >= constants.MAX_X or hunter_position.get_x() <= 0:
             start = Point(53, 28)
