@@ -30,7 +30,7 @@ class Game_Over:
     
     def fell_down_a_hole():
         with ManagedScreen() as screen:
-            screen.print_at('You fell down a hole, should have been looking where you where waliking', 25, 15)
+            screen.print_at('You fell down a hole, should have been looking where you where walking', 25, 15)
             screen.print_at('Game Over', 50, 16)
             screen.refresh()
             sleep(7)
