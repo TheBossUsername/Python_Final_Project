@@ -51,6 +51,10 @@ class ControlActorsAction(Action):
             bow = cast["bow"][0]
             hunter = cast["hunter"][0]
             dragon = cast["dragon"][0]
+            arrows = cast["arrows"][0]
+            x = arrows.get_value()
+            x -= 1
+            arrows.set_value(x)
             bposition = bow.get_position()
             hposition = hunter.get_position()
             dposition = dragon.get_position()
@@ -76,6 +80,8 @@ class ControlActorsAction(Action):
                 for t in range(6, 30, 6):
                     if dx + 2 == hx and dy == hy - t:
                         hunter.set_text("U")
+            elif arrows.get_value() == 0:
+                hunter.set_text("out")
 
 
 

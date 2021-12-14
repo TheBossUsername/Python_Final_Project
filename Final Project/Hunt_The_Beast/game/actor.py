@@ -54,6 +54,14 @@ class Actor:
         """
         return self._velocity
     
+    def get_value(self):
+        """Updates the actor's text to the given value.
+        
+        Args:
+            value (int): The given value.
+        """
+        return self._value
+    
     def set_description(self, description):
         """Updates the actor's description to the given one.
         
@@ -77,6 +85,14 @@ class Actor:
             text (string): The given value.
         """
         self._text = text
+    
+    def set_value(self, value):
+        """Updates the actor's text to the given value.
+        
+        Args:
+            value (int): The given value.
+        """
+        self._value = value
 
     def set_velocity(self, velocity):
         """Updates the actor's velocity to the given one.

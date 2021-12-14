@@ -132,7 +132,8 @@ def main(screen):
     
     position = Point(1, 1)
     arrows = Actor()
-    arrows.set_text("Arrows: 3")
+    arrows.set_value(3)
+    arrows.set_text(f"Arrows {arrows.get_value()}")
     arrows.set_position(position)
     cast["arrows"] = [arrows]
 
