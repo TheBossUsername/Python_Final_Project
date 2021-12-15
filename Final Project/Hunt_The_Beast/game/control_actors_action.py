@@ -5,43 +5,20 @@ from game.actor import Actor
 from game.game_over import Game_Over
 
 class ControlActorsAction(Action):
-    #
     # Description:
-    #   A visible, moveable thing that participates in the game. 
-    #   The responsibility of Actor is to keep track of its appearance, position, value 
-    #   and velocity in 2d space.
-    #
+    #   Takes the users input from input service and converts it into a action that alters actors or ends 
+    #   the game
+    # 
     # OOP Principles Used:
-    #   Encapsulation, Polymorphism
+    #   Abstraction
     #
     # Reasoning:
-    #   This class uses encapsulation becuase there is functions to set and get attributes of actors but no way 
-    #   manually change the data inside 
-    #
-    """A code template for controlling actors. The responsibility of this
-    class of objects is translate user input into some kind of intent.
-    
-    Stereotype:
-        Controller
-
-    Attributes:
-        _input_service (InputService): An instance of InputService.
-    """
-
+    #   This class uses abstraction because it takes data from the input service and converts it into actions
+    #   without having to code it in main
     def __init__(self, input_service):
-        """The class constructor.
-        
-        Args:
-            input_service (InputService): An instance of InputService.
-        """
         self._input_service = input_service
 
     def execute(self, cast):
-        """Executes the action using the given actors.
-
-        Args:
-            cast (dict): The game actors {key: tag, value: list}.
-        """
         direction = self._input_service.get_direction()
         x1 = direction.get_x()
         y1 = direction.get_y()
@@ -98,7 +75,7 @@ class ControlActorsAction(Action):
             if arrows.get_value() == 0:
                 Game_Over.out_of_arrows()
         else:
-            hunter = cast["hunter"][0] # there's only one in the cast
+            hunter = cast["hunter"][0] 
             hunter.set_velocity(direction)   
-            bow = cast["bow"][0] # there's only one in the cast
+            bow = cast["bow"][0] 
             bow.set_velocity(direction)      
