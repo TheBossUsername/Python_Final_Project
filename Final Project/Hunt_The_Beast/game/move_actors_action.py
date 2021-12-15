@@ -3,35 +3,26 @@ from game.action import Action
 from game.point import Point
 
 class MoveActorsAction(Action):
-    """A code template for moving actors. The responsibility of this class of
-    objects is move any actor that has a velocity more than zero.
-    
-    Stereotype:
-        Controller
-
-    Attributes:
-        _input_service (InputService): An instance of InputService.
-    """
+   # Description:
+    #   Takes the users input from input service and converts it into a action that alters actors or ends 
+    #   the game
+    # 
+    # OOP Principles Used:
+    #   Abstraction
+    #
+    # Reasoning:
+    #   This class uses abstraction because it takes the velocity and position and gives actors a new position
+    #
+    #   It also uses inheritance by inheriting the class action, so when the director executes actions it
+    #   will activate this class as well
 
     def execute(self, cast):
-        """Executes the action using the given actors.
-
-        Args:
-            cast (dict): The game actors {key: tag, value: list}.
-        """
         for group in cast.values():
             for actor in group:
                 if not actor.get_velocity().is_zero():
                     self._move_actor(actor)
 
     def _move_actor(self, actor):
-        """Moves the given actor to its next position according to its 
-        velocity. Will wrap the position from one side of the screen to the 
-        other when it reaches the edge in either direction.
-        
-        Args:
-            actor (Actor): The actor to move.
-        """
         position = actor.get_position()
         velocity = actor.get_velocity()
         x1 = position.get_x()

@@ -6,10 +6,10 @@ class Director:
     #   It takes the cast and script of all the actors and actions and runs the game
     # 
     # OOP Principles Used:
-    #   Encapsulation
+    #   None that I can think of
     #
     # Reasoning:
-    #   This class uses encapsulation because it stores the script and cast that it was passed to by main
+    #   None that I can think of
     #   
 
     def __init__(self, cast, script):

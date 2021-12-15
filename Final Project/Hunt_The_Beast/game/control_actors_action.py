@@ -15,6 +15,9 @@ class ControlActorsAction(Action):
     # Reasoning:
     #   This class uses abstraction because it takes data from the input service and converts it into actions
     #   without having to code it in main
+    #
+    #   It also uses inheritance by inheriting the class action, so when the director executes actions it
+    #   will activate this class as well
     def __init__(self, input_service):
         self._input_service = input_service
 

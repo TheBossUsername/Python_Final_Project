@@ -1,5 +1,4 @@
 import random
-from game import constants
 from game.director import Director
 from game.actor import Actor
 from game.point import Point
@@ -10,10 +9,12 @@ from game.move_actors_action import MoveActorsAction
 from game.input_service import InputService
 from game.output_service import OutputService
 from asciimatics.screen import Screen 
+from game.game_over import Game_Over
+from asciimatics.screen import ManagedScreen
+from time import sleep
 
 def main(screen):
-
-
+    Game_Over.start_game()
     cast = {}
     cast["walls"] = []
     for x in range(7, 100, 7):
@@ -24,7 +25,6 @@ def main(screen):
                 walls.set_text("|")
                 walls.set_position(position)
                 cast["walls"].append(walls)
-    
     
     for x in range(8, 100, 14):
         i = 0
@@ -117,19 +117,19 @@ def main(screen):
             position = Point(z, y + 1)
             hole_warning.set_position(position)
             cast["hole_warning"].append(hole_warning)
-        for t in range(y - 5, y + 14, 12):
-            hole_warning = Actor()
-            hole_warning.set_text("")
-            position = Point(x, t)
-            hole_warning.set_position(position)
-            cast["hole_warning"].append(hole_warning)
-        for z in range(x - 14, x + 15, 28):
             for t in range(y - 5, y + 14, 12):
                 hole_warning = Actor()
                 hole_warning.set_text("")
                 position = Point(z, t)
                 hole_warning.set_position(position)
                 cast["hole_warning"].append(hole_warning)
+        for t in range(y - 5, y + 14, 12):
+            hole_warning = Actor()
+            hole_warning.set_text("")
+            position = Point(x, t)
+            hole_warning.set_position(position)
+            cast["hole_warning"].append(hole_warning)
+            
     
     position = Point(1, 1)
     arrows = Actor()
@@ -138,9 +138,6 @@ def main(screen):
     arrows.set_position(position)
     cast["arrows"] = [arrows]
 
-
-
-    # create the script {key: tag, value: list}
     script = {}
 
     input_service = InputService(screen)
@@ -155,7 +152,6 @@ def main(screen):
     script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
-    # start the game
     director = Director(cast, script)
     director.start_game()
 

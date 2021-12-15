@@ -1,7 +1,15 @@
 from game.action import Action
 
-# TODO: Define the DrawActorsAction class here
 class DrawActorsAction(Action):
+    # Description:
+    #   It takes the cast and script of all the actors and actions and runs the game
+    # 
+    # OOP Principles Used:
+    #   Inheritance
+    #
+    # Reasoning:
+    #   It uses inheritance by inheriting the class action, so when the director executes actions it
+    #   will activate this class as well
     def __init__(self, output):
         super().__init__()
         self._output = output
