@@ -2,16 +2,15 @@ from time import sleep
 from game import constants
 
 class Director:
-    """A code template for a person who directs the game. The responsibility of 
-    this class of objects is to control the sequence of play.
-    
-    Stereotype:
-        Controller
-
-    Attributes:
-        _cast (dictionary): The game actors {key: name, value: object}
-        _script (dictionary): The game actions {key: tag, value: object}
-    """
+    # Description:
+    #   It takes the cast and script of all the actors and actions and runs the game
+    # 
+    # OOP Principles Used:
+    #   Encapsulation
+    #
+    # Reasoning:
+    #   This class uses encapsulation because it stores the script and cast that it was passed to by main
+    #   
 
     def __init__(self, cast, script):
         """The class constructor.
@@ -32,10 +31,5 @@ class Director:
             sleep(constants.FRAME_LENGTH)
 
     def _cue_action(self, tag):
-        """Executes the actions with the given tag.
-        
-        Args:
-            tag (string): The given tag.
-        """ 
         for action in self._script[tag]:
             action.execute(self._cast)
