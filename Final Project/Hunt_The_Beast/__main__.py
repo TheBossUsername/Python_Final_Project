@@ -9,7 +9,6 @@ from game.handle_collisions_action import HandleCollisionsAction
 from game.move_actors_action import MoveActorsAction
 from game.input_service import InputService
 from game.output_service import OutputService
-from game.fire_action import FireAction
 from asciimatics.screen import Screen 
 
 
@@ -148,14 +147,13 @@ def main(screen):
     input_service = InputService(screen)
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
-    fire_action = FireAction(input_service)
     move_actors_action = MoveActorsAction()
     handle_collisions_action = HandleCollisionsAction()
     draw_actors_action = DrawActorsAction(output_service)
     
     
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_action, fire_action]
+    script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
     # start the game
